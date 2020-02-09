@@ -1,8 +1,20 @@
 from django.test import TestCase
 from classroom.models import Student
 
+from mixer.backend.django import mixer
+
 
 class TestStudentModel(TestCase):
+    # def setUp(self):
+
+    #     self.student1 = Student.objects.create(
+    #         first_name="Tom", last_name="Mboya", admission_number=12345
+    #     )
+
+    # setting up new users
+    # getting access tokens / logged in users
+    # setup up timers
+
     def test_add_a_plus_b(self):
         a = 1
         b = 2
@@ -12,18 +24,15 @@ class TestStudentModel(TestCase):
 
     def test_student_can_be_created(self):
 
-        student1 = Student.objects.create(
-            first_name="Tom", last_name="Mboya", admission_number=1234
-        )
+        student1 = mixer.blend(Student, first_name="Tom")
 
         student_result = Student.objects.last()  # getting the last student
 
         self.assertEqual(student_result.first_name, "Tom")
 
     def test_str_return(self):
-        student1 = Student.objects.create(
-            first_name="Tom", last_name="Mboya", admission_number=1234
-        )
+
+        student1 = mixer.blend(Student, first_name="Tom")
 
         student_result = Student.objects.last()  # getting the last student
 
@@ -31,9 +40,7 @@ class TestStudentModel(TestCase):
 
     def test_grade_fail(self):
 
-        student1 = Student.objects.create(
-            first_name="Tom", last_name="Mboya", admission_number=1234, average_score=10
-        )
+        student1 = mixer.blend(Student, average_score=10)
 
         student_result = Student.objects.last()  # getting the last student
 
@@ -41,9 +48,7 @@ class TestStudentModel(TestCase):
 
     def test_grade_pass(self):
 
-        student1 = Student.objects.create(
-            first_name="Tom", last_name="Mboya", admission_number=1234, average_score=60
-        )
+        student1 = mixer.blend(Student, average_score=60)
 
         student_result = Student.objects.last()  # getting the last student
 
@@ -51,9 +56,7 @@ class TestStudentModel(TestCase):
 
     def test_grade_excellent(self):
 
-        student1 = Student.objects.create(
-            first_name="Tom", last_name="Mboya", admission_number=1234, average_score=90
-        )
+        student1 = mixer.blend(Student, average_score=90)
 
         student_result = Student.objects.last()  # getting the last student
 
