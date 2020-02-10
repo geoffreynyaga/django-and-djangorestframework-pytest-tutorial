@@ -20,7 +20,7 @@ class TestStudentModel(TestCase):
         b = 2
         c = a + b
 
-        self.assertEqual(c, 3)
+        assert c == 3
 
     def test_student_can_be_created(self):
 
@@ -28,7 +28,7 @@ class TestStudentModel(TestCase):
 
         student_result = Student.objects.last()  # getting the last student
 
-        self.assertEqual(student_result.first_name, "Tom")
+        assert student_result.first_name == "Tom"
 
     def test_str_return(self):
 
@@ -36,7 +36,7 @@ class TestStudentModel(TestCase):
 
         student_result = Student.objects.last()  # getting the last student
 
-        self.assertEqual(str(student_result), "Tom")
+        assert str(student_result) == "Tom"
 
     def test_grade_fail(self):
 
@@ -44,7 +44,7 @@ class TestStudentModel(TestCase):
 
         student_result = Student.objects.last()  # getting the last student
 
-        self.assertEqual(student_result.get_grade(), "Fail")
+        assert student_result.get_grade() == "Fail"
 
     def test_grade_pass(self):
 
@@ -52,7 +52,7 @@ class TestStudentModel(TestCase):
 
         student_result = Student.objects.last()  # getting the last student
 
-        self.assertEqual(student_result.get_grade(), "Pass")
+        assert student_result.get_grade() == "Pass"
 
     def test_grade_excellent(self):
 
@@ -60,5 +60,5 @@ class TestStudentModel(TestCase):
 
         student_result = Student.objects.last()  # getting the last student
 
-        self.assertEqual(student_result.get_grade(), "Excellent")
+        assert student_result.get_grade() == "Excellent"
 
