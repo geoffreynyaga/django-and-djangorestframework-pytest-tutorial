@@ -6,6 +6,7 @@ from .views import (
     StudentCreateAPIView,
     StudentDeleteAPIView,
     StudentDetailAPIView,
+    ClassroomNumberAPIView,
 )
 
 urlpatterns = [
@@ -18,5 +19,10 @@ urlpatterns = [
         "student/<int:pk>/delete/",
         StudentDeleteAPIView.as_view(),
         name="student_delete_api",
+    ),
+    path(
+        "classroom/<int:student_capacity>/",
+        ClassroomNumberAPIView.as_view(),
+        name="class_qs_api",
     ),
 ]
