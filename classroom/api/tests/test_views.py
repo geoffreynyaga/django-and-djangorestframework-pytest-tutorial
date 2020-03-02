@@ -116,13 +116,53 @@ class TestClassroomAPIViews(TestCase):
 
         print(self.client, "self.client")
 
+        # method 1
+
+        # from rest_framework.authtoken.models import Token
+
+        # from django.contrib.auth import get_user_model
+
+        # User = get_user_model()
+
+        # self.our_user = User.objects.create(username="testuser", password="abcde")
+
+        # self.token = Token.objects.create(user=self.our_user)
+
+        # print(self.token.key, "token")
+
+        # self.client.credentials(HTTP_AUTHORIZATION="Token " + self.token.key)
+
+        # method 2 # normal
+
+        from django.contrib.auth import get_user_model
+
+        User = get_user_model()
+
+        self.our_user = User.objects.create_user(username="testuser", password="abcde")
+
+        self.token_url = "http://localhost:8000/api-token-auth/"
+
+        user_data = {"username": "testuser", "password": "abcde"}
+
+        response = self.client.post(self.token_url, data=user_data)
+
+        # print(dir(response.), "reponse")
+        print((response.data), "reponse")
+        """
+                {
+            "token": "b89d0bab1b4f818c5af6682cec66f84b0bdb664c"
+        }
+        """
+
+        self.client.credentials(HTTP_AUTHORIZATION="Token " + response.data["token"])
+
     def test_classroom_qs_works(self):
         classroom = mixer.blend(Classroom, student_capacity=20)
         classroom2 = mixer.blend(Classroom, student_capacity=27)
 
         url = reverse("class_qs_api", kwargs={"student_capacity": 15})
 
-        response = self.client.get(url)
+        response = self.client.get(url,)
 
         assert response.status_code == 202
         assert response.data["classroom_data"] != []
