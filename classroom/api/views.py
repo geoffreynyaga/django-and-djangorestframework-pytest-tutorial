@@ -5,7 +5,7 @@ from rest_framework.generics import (
     RetrieveAPIView,
 )
 
-from rest_framework import status
+from rest_framework import status, permissions, authentication
 
 from rest_framework.views import APIView
 
@@ -44,6 +44,9 @@ class ClassroomNumberAPIView(APIView):
     serializer_class = ClassroomSerializer
     model = Classroom
     queryset = Student.objects.all()
+
+    permission_classes = [permissions.IsAuthenticated]
+    authentication_classes = [authentication.TokenAuthentication]
 
     def get(self, *args, **kwargs):
 
