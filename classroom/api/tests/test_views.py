@@ -68,11 +68,12 @@ class TestStudentAPIViews(TestCase):
     def test_student_detail_works(self):
         # create a student
 
-        student = mixer.blend(Student, first_name="Geoffrey")
+        student = mixer.blend(Student, pk=1, first_name="Geoffrey")
+        print(Student.objects.last().pk, "qs")
         url = reverse("student_detail_api", kwargs={"pk": 1})
         response = self.client.get(url)
 
-        student2 = mixer.blend(Student, first_name="Naomi")
+        student2 = mixer.blend(Student, pk=2, first_name="Naomi")
         url2 = reverse("student_detail_api", kwargs={"pk": 2})
         response2 = self.client.get(url2)
 
@@ -93,7 +94,7 @@ class TestStudentAPIViews(TestCase):
     def test_student_delete_works(self):
         # create a student
 
-        student = mixer.blend(Student, first_name="Geoffrey")
+        student = mixer.blend(Student, pk=1, first_name="Geoffrey")
         assert Student.objects.count() == 1
 
         url = reverse("student_delete_api", kwargs={"pk": 1})

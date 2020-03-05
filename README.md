@@ -1,17 +1,17 @@
 # Welcome to Pytest Django and DRF Tutorial 🦄
 
-> This tutorial series is dedicated to exploring the basics of inbuilt Django testing and introduces
-> Pytest and its various plugins to help us write better code
+> <b> This tutorial series is dedicated to exploring the basics of inbuilt Django testing and introduces
+> Pytest and its various plugins to help us write better code</b>
 >
 > Currently we cover the following:
 >
-> - Code coverage,
-> - Generating fixtures using mixer
-> - Complex testing of edge-cases using hypothesis
-> - Testing Serializers
-> - Testing DRF Views
-> - DRF authentication testing
-> - Github Actions
+> - `Code coverage`,
+> - `Generating fixtures using Mixer`
+> - `Complex testing of edge-cases using Hypothesis`
+> - `Testing Serializers`
+> - `Testing DRF Views`
+> - `DRF authentication testing`
+> - `Github Actions`
 
 > ### Additional Resources
 >
@@ -26,7 +26,6 @@ mkdir <my_project>
 cd my_project
 
 git clone https://github.com/geoffreynyaga/django-and-djangorestframework-pytest-tutorial.git .
-
 ```
 
 ## Testing setup🧪🧪
@@ -35,53 +34,58 @@ The projects uses pytest and black as the formatting option. The tests also chec
 
 To initiate tests follow the steps below:
 
-1. Its advised to create a virtual environment in the root folder
+1.  Its advised to create a virtual environment in the root folder
 
-```bash
-virtualenv venv
-```
+    ```bash
+    virtualenv venv
+    ```
 
-2. Activate the environent. For Linux/MacOS users use the command below
+2.  Activate the environent.
 
-```bash
-source venv/bin/activate
-```
+    a. For Linux/MacOS users use the command below
 
-for windows users
+    ```bash
+    source venv/bin/activate
+    ```
 
-```bash
-cd venv/Scripts
+    b. for windows users
 
-activate.bat
-```
+    ```bash
+    cd venv/Scripts
 
-3. Install the requirements
+    activate.bat
+    ```
 
-```shell
-pip install -r requirements.txt
-```
+3.  Install the requirements
 
-4. Run the pytest command
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-```bash
-pytest
-```
+4.  Run the pytest command
+
+    ```bash
+    pytest
+    ```
 
 The testing results will be displayed and there will also be a `htmlcov` folder generated inside the project that will contain the code coverage details.
 
 <pre>
-├── aerocalc
-│   ├── __pycache__
-│   └── test
-├──  <b>htmlcov</b>
-└── venv
+    .
+    ├── accounts
+    │   ├── api
+    │   │   └── tests
+    │   └── migrations
+    ├── classroom
+    ├── <b>htmlcov</b>
+    └── venv
 </pre>
 
 Open up the folder and open the `index.html` in your browser to see this information.
 
 ## Project layout
 
-```
+```bash
     .
     ├── accounts
     │   ├── api
