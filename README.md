@@ -1,5 +1,7 @@
 # Welcome to Pytest Django and DRF Tutorial 🦄
 
+![](https://github.com/geoffreynyaga/django-and-djangorestframework-pytest-tutorial/workflows/Pytest%20CI/badge.svg)
+
 > <b> This tutorial series is dedicated to exploring the basics of inbuilt Django testing and introduces
 > Pytest and its various plugins to help us write better code</b>
 >
