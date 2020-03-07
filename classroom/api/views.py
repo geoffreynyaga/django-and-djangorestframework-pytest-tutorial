@@ -74,4 +74,3 @@ class ClassroomNumberAPIView(APIView):
                 {"Error": "Could not serialize data"},
                 status=status.HTTP_203_NON_AUTHORITATIVE_INFORMATION,
             )
-

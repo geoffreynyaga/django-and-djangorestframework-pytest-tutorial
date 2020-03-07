@@ -24,4 +24,3 @@ class ClassroomSerializer(ModelSerializer):
             "student_capacity",
             "students",
         )
-

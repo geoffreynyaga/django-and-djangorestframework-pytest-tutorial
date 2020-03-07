@@ -21,6 +21,7 @@ class TestStudentAPIViews(TestCase):
         # create a student
 
         student = mixer.blend(Student, first_name="Geoffrey")
+
         student2 = mixer.blend(Student, first_name="Naomi")
 
         url = reverse("student_list_api")
@@ -168,4 +169,3 @@ class TestClassroomAPIViews(TestCase):
         assert response.status_code == 202
         assert response.data["classroom_data"] != []
         assert response.data["number_of_classes"] == 2
-
